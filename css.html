@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<title>...</title>
+<style>
+
+
+
+
+</style>
+<link  rel="icon" href="https://lh3.googleusercontent.com/proxy/N9V2L5TyOd7hSSXLsL4v78XB8g6qf-qn71MWoZT5_jH1marpskzweUAp4T29kusvkTCG7KJLkNZ7hTIqWkVj_A6zoJ_0yo6E7C1YBShrdQ76pnmBm30" type="image/png" />
+
+</head>
+<body align="center" style="background-color:#222222;">
+
+    <canvas id="can" style="border:2px solid blue;" ></canvas>
+
+    <br>
+
+    <button id="bt">dispara</button>
+    <button id="btt">parar de dispara</button>
+
+
+<script>
+
+
+var ctx = document.getElementById('can').getContext('2d');
+
+var bt = document.getElementById('bt');
+var btt = document.getElementById('btt');
+
+var aliens = [];
+aliens[0] = new Image();
+aliens[0].src = 'madman5.png';
+
+aliens[1] = new Image();
+aliens[1].src = 'madman1.png';
+
+aliens[2] = new Image();
+aliens[2].src='madman2.png';
+
+aliens[3] = new Image();
+aliens[3].src='madman3.png';
+
+aliens[4] = new Image();
+aliens[4].src='madman4.png';
+
+aliens[5] = new Image();
+aliens[5].src='madman.png';
+
+var x = 0;
+var xi = 0;
+var xix = 0;
+var xb = x+30;
+var dc = 0;
+
+bt.addEventListener('mousedown', function(event){
+ this. disparar = setInterval(function(){ 
+
+    xix+=0.5;
+    if(xix >= 0){ xi= 0;}
+    if(xix >= 1){ xi= 1;}
+    if(xix >= 2){ xi= 2;}
+    if(xix >= 3){ xi= 3;}
+    if(xix >= 4){ xi= 4;}
+    if(xix >= 5){ xi= 5;}
+    if(xix > 5){ xix= 0;}
+
+
+    if(xi>5){xi=0}
+    if(xb>300 && xi==2){xb=x}
+
+
+
+ctx.clearRect(0, 0, 500, 500);
+
+ctx.drawImage(aliens[xi], x+=.05, 30, 50, 50);
+
+ctx.fillRect(xb+=100, 50, 10, 5);
+
+
+
+},1000/30);
+
+setTimeout(() => {
+            clearInterval(this.disparar)
+        }, 395);
+
+
+});
+
+
+
+    
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+<script>
+setTimeout(function(){location.reload()}, 10000);
+</script>
+
+</body>
+
+</html>
